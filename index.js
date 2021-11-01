@@ -21,3 +21,4 @@ var findMaxConsecutiveOnes = function(nums) {
 };
 
 console.log(findMaxConsecutiveOnes(numsA));
+
