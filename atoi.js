@@ -9,3 +9,32 @@
 // If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then clamp the integer so that it remains in the range. Specifically, integers less than -231 should be clamped to -231, and integers greater than 231 - 1 should be clamped to 231 - 1.
 // Return the integer as the final result.
 
+var myAtoi = function(s) {
+    let charCheck = 1
+
+    let newNum = s.trim();
+    let checkArray = newNum.split('')
+    console.log(parseInt(newNum));
+    console.log(checkArray)
+
+    if (checkArray[0] == '-' || checkArray[0]== '+') {
+        checkArray.shift()
+    }
+
+    if (isNaN(checkArray[0]) || checkArray[0] === ' ') {
+        console.log(checkArray + 'hi')
+        return 0
+    }
+
+    let Number = parseInt(newNum) * charCheck 
+
+    if (Number > 0x7FFFFFFF) {
+        return (2 ** 31) - 1
+    } 
+    if(Number < Math.pow(-2, 31)){
+        return -(2 ** 31)
+    }
+    return Number
+};
+
+console.log(myAtoi("   -115579378e25"))
