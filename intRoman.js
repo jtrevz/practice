@@ -1,30 +1,40 @@
+const romanMap = new Map([
+    [1, 'I'],
+    [5, 'V'],
+    [10, 'X'],
+    [50, 'L'],
+    [100, 'C'],
+    [500, 'D'],
+    [1000, 'M']
+])
+
 var intToRoman = function(num) {
-    let numHold = num;
-    let numArray = [];
-    let counter = 0;
-    let romanObj = {
-        1000: 'M',
-        900: 'CM',
-        500: 'D',
-        400: 'CD',
-        100: 'C',
-        90: 'XC',
-        50: 'L',
-        40: 'XL',
-        10: '10',
-        9: 'IX',
-        5: 'V',
-        4: "IV",
-        1: '1'
-    }; 
+    let counter = 1;
     let romanNum = '';
     
-    while (numHold > 0) {
-        
+    while (num > 0) {
+        const digit = num % 10;
+
+        if (digit < 4) {
+            for (let i = digit; i > 0; i--) {
+               romanNum = (romanMap.get(counter) + romanNum)
+            }
+        } else if (digit === 4) {
+            romanNum = ((romanMap.get(counter))+(romanMap.get(counter * 5)) + romanNum)
+        } else if (digit === 5) {
+            romanNum = (romanMap.get(counter * 5) + romanNum)
+        } else if ( digit < 9) {
+            for (let i = digit; i > 5; i--) {
+                romanNum = (romanMap.get(counter) + romanNum)
+            }
+            romanNum = (romanMap.get(counter * 5) + romanNum)
+        } else {
+            romanNum = (romanMap.get(counter)+ romanMap.get(counter * 10) + romanNum)
+        }
+        num = num/10|0
+        counter = counter * 10
     }
-    console.log(numArray);
-
-
+    return romanNum
 }
 
-intToRoman(123)
+console.log(intToRoman(143))
