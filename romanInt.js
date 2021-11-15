@@ -27,7 +27,6 @@ var romanToInt = function(s) {
             result -= cVal
         }
         else {
-            console.log(`Normal:  ${cVal}, ${nVal}`)
             if (nVal) {
                 result += (cVal + nVal) 
                 i--;
