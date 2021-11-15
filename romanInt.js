@@ -19,14 +19,14 @@ var romanToInt = function(s) {
         let nVal = romanMap.get((singleRom[(i - 1)]))
 
         if (cVal > nVal) {
-            result += (cVal-nVal)
-            i--
+            result += (cVal-nVal);
+            i--;
         } else {
-            result += (cVal + nVal) )
-            i--
+            nVal ? result += (cVal + nVal) : result += cVal
+            i--;
         } 
     }
     return result
 }
 
-console.log(romanToInt('III'))
+console.log(romanToInt('MCMXCIV'))
