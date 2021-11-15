@@ -17,30 +17,23 @@ var romanToInt = function(s) {
     for (let i = singleRom.length - 1; i >= 0; i--) {
         let cVal = romanMap.get((singleRom[i]))
         let nVal = romanMap.get((singleRom[(i - 1)]))
-        console.log(`Round: ${i}, ${cVal}, ${nVal}, ${(singleRom[(i + 1)])}`);
 
         if (cVal > nVal) {
             console.log(`Greater:  ${cVal}, ${nVal}`)
             result += (cVal - nVal);
             i--;
-            console.log(result, `Ending: ${i}`);
 
-        } else if (cVal < (singleRom[(i + 1)])) {
+        } else if (cVal < romanMap.get(singleRom[(i + 1)])) {
             result -= cVal
-            ("current minus")
         }
         else {
             console.log(`Normal:  ${cVal}, ${nVal}`)
             if (nVal) {
                 result += (cVal + nVal) 
                 i--;
-                console.log((`Next Num exists ${result}, ${i} `))
             } else {
                 result += cVal
-                console.log((`NO NEW NUM ${result}, ${i} `))
             }
-            // nVal ? result += (cVal + nVal) : result += cVal
-            // i--;
         } 
     }
     return result
