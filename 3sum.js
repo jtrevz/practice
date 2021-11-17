@@ -4,6 +4,10 @@ let nums1 = [0];
 var threeSum = function (nums) {
     let solution = [];
 
+    nums.sort((a,b) => {
+        return (a-b)
+    })
+
     if (nums == []) {
         return solution
     }
@@ -17,12 +21,22 @@ var threeSum = function (nums) {
             let y = nums[j];
             let z = nums[j + 1];
 
-            if ((y + z) == x) {
-                tempArray.push(x, y, z)
+            if (((y + z) == x)) {
+                tempArray.push((nums[i]), y, z)
+                console.log(tempArray);
+                console.log(solution);
+                console.log();
+                if (!solution.includes(tempArray)){
+                    console.log('in inclusion');
                 solution.push(tempArray)
+
+                }
             }
         }
 
     }
     return solution;
 }
+
+console.log('Answer:');
+console.log(threeSum([0,0,0,0]));
