@@ -24,11 +24,22 @@ var threeSum = function (nums) {
             if (((y + z) == x)) {
                 tempArray.push((nums[i]), y, z);
                 tempArray.sort();
-                let hi = ((solution.map(array => array.every(function(element, index) { 
-                    return element === tempArray[index]
-                }) )));
-                console.log(hi);
-                solution.push(tempArray);
+                // let hi = ((solution.map(array => array.every(function(element, index) { 
+                //     return element === tempArray[index]
+                // }) )));
+
+                // console.log(hi);
+                // console.log('njandf;aiweug');
+                // console.log(solution.find(array => array.every(function(e, index){
+                //     return e === tempArray[index]
+                // })));
+                if (!(solution.find(array => array.every(function(e, index){
+                    return e === tempArray[index]
+                })))) {
+                    console.log("this might be the answer ")
+                    solution.push(tempArray);
+                }
+                // solution.push(tempArray);
                 // }
 
 
