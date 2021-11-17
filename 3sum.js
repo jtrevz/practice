@@ -1,14 +1,14 @@
 let nums = [-1,0,1,2,-1,-4];
 let nums1 = [0];
 
+const equal = (a,b) => {
+    a.every((v, r) => v === b[r])
+}
+
 var threeSum = function (nums) {
     let solution = [];
 
-    nums.sort((a,b) => {
-        return (a-b)
-    })
-
-    if (nums == []) {
+        if (nums == []) {
         return solution
     }
 
@@ -22,15 +22,16 @@ var threeSum = function (nums) {
             let z = nums[j + 1];
 
             if (((y + z) == x)) {
-                tempArray.push((nums[i]), y, z)
-                console.log(tempArray);
-                console.log(solution);
-                console.log();
-                if (!solution.includes(tempArray)){
-                    console.log('in inclusion');
-                solution.push(tempArray)
+                tempArray.push((nums[i]), y, z);
+                tempArray.sort();
+                let hi = ((solution.map(array => array.every(function(element, index) { 
+                    return element === tempArray[index]
+                }) )));
+                console.log(hi);
+                solution.push(tempArray);
+                // }
 
-                }
+
             }
         }
 
@@ -38,5 +39,5 @@ var threeSum = function (nums) {
     return solution;
 }
 
-console.log('Answer:');
-console.log(threeSum([0,0,0,0]));
+
+console.log(threeSum([0,0,-1,1]));
