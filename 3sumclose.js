@@ -6,7 +6,7 @@ var threeSumClosest = function(nums, target) {
     }
 
     nums.sort(function(a, b) {return (a-b)})
-    let closestSum;
+    let closestSum = 1000000000;
 
     for (let i = 0; i < nums.length - 2; i++) {
         let l = i + 1;
@@ -14,18 +14,17 @@ var threeSumClosest = function(nums, target) {
 
         while (l < r) {
             const tempRes = nums[i] + nums[r] + nums[l];
-            let diff = target - tempRes
-            let diff1 = 0
-            if (diff == 0) {
+            if (tempRes === target) {
                 return tempRes;
             }
-            else if ((!closestSum)|| (Math.abs(diff1) > Math.abs(diff))){
+            if (Math.abs(target-tempRes) < Math.abs(target - closestSum)){
                 closestSum = tempRes;
-                diff1 = diff // leave ++ till later
             } 
-            if (diff > 0) {
+
+            if (tempRes > target) {
                 r--;
-            } else if (diff < 0) {
+            }
+            else  {
                 l++;
             }
         }
@@ -34,5 +33,7 @@ var threeSumClosest = function(nums, target) {
     return closestSum
 
 };
+
+
 
 console.log(threeSumClosest([-1,2,1,-4], 1));
