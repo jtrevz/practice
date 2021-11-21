@@ -10,7 +10,14 @@ const numberMap = new Map([
 ])
 
 var letterCombinations = function(digits) {
-    return numberMap.get(2)
+    if (digits === '') {
+        return []
+    }
+    const result = [];
+
+    const dfs = (i, )
+
+    return parseFloat(digits.split(''))
 };
 
-console.log(letterCombinations(2))
+console.log(letterCombinations('23'))
