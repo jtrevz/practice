@@ -17,11 +17,9 @@ var letterCombinations = function(digits) {
     const result = [];
 
     const dfs = (i, digits, opt) => {
-        if (digits === '') {
-            return []
-        }
         let character = numberMap[digits[i]]
     
+        if (!character) return []
         console.log(character);
 
         for (let x=0; x < character.length; x++) {
