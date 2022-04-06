@@ -25,6 +25,7 @@ let letterCombinations = function(digits) {
 
         for(let x = 0; x < char.length; x++) {
             opt.push(char[i])
+            dfs(1 + i, digits, opt) 
         }
     }
 }

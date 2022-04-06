@@ -18,23 +18,21 @@ var letterCombinations = function(digits) {
 
     const dfs = (i, digits, opt) => {
         let character = numberMap[digits[i]]
+        let result = []
     
-        if (!character) return []
-        console.log(character);
+        if (!character) 
+        return []
 
-        for (let x=0; x < character.length; x++) {
-            opt.push(character[i]);
+        for (let x = 0; x < character.length; x++) {
+            opt.push(character[x]);
+            // opt.push(numberMap[digits[i+1]])
             dfs(1 + i , digits, opt);
             opt.pop();
+            console.log(opt);
         }
-        // for(let char of character) {
-        //     opt.push(char);
-        //     dfs(1 + i , digits, opt);
-        //     slate.pop();
-        // }
+        result.push(opt)
     }
     dfs(0, digits, []);
-
 
     return result;
 };
