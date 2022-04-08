@@ -43,20 +43,19 @@
 // };
 
 function fourSum(nums, target) {
-    const solution = [];
+    let solution = [];
 
     if (nums.length < 4) return solution
 
     nums.sort(function(a,b) {return (a-b)})
 
-    console.log(nums);
 
-    for (let i = 0; 1 < nums.length-3; i++) {
-        if (i > 0 && nums[i] === nums[i - 1]) continue;
+    for (let i = 0; i < nums.length-3; i++) {
+        if (i > 0 && nums[i] == nums[i - 1]) {continue};
         if (nums[i] + nums[i+1] + nums [i+2] + nums [i+3] > target) break;
         
         for (let j = i + 1; j < nums.length-2; j++) {
-            if (j > i + 1 && nums[j]== nums[j-1]) continue;
+            if ( j > i + 1 && nums[j] == nums[j-1]) {continue};
 
             let l = j + 1
             let r = nums.length-1
@@ -65,18 +64,20 @@ function fourSum(nums, target) {
                 const sum = (nums[i] + nums[j] + nums [l] + nums [r]);
 
                 if (sum === target) {
-                    solution.push([nums[i], nums[j], nums[l], nums [r]])
-                    while(nums[l] == nums[l + 1]) {
-                     l++;
-                    }
+                    solution.push([nums[i], nums[j], nums[l], nums [r]]);
+
+                    do {
+                        l++;
+                    } while (nums[l] == nums[l - 1]);
+                    do {
+                        r--;
+                    } while (nums[r] == nums[r + 1]);
+                } 
+                else if (sum < target) {
                     l++;
-                    while(nums[r] == nums[r - 1]) {
-                     r--;
-                    }
-                    r--;
-                } else if (sum < target) {
-                    l++;
-                } else  {
+                } 
+                
+                else  {
                     r--;
                 }
             }
