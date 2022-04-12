@@ -9,5 +9,11 @@ let n2= [1]
 
 
 let removeNthFromEnd = function(head, n) {
-    return head.splice((head.length),1)
+    let removed = head.splice(-n, 1);
+    return head
 }
+
+console.log(removeNthFromEnd(input, n))
+
+console.log(removeNthFromEnd(input1, n1))
+console.log(removeNthFromEnd(input2, n2))
