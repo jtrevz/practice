@@ -5,7 +5,12 @@ let isValid = function(s) {
 
     while(i < pArray.length) {
         stack.push(pArray[i])
+        i++;
     }
+
+    let open = slack[slack.length - 2];
+    let closed = slack[slack.length - 1];
+
 
     
 }
