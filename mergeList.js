@@ -28,7 +28,8 @@ console.log(mergeTwo([],[]));
 console.log(mergeTwo([],[0]));
 
 let mergedNode = (l1,l2) => {
-    let mergedList = new NodeList;
+    let mergedList = new ListNode();
+    let result = mergedList
     
     while(l1 && l2) {
         if (l1.val < l2.val) {
@@ -46,7 +47,7 @@ let mergedNode = (l1,l2) => {
     if(l2) {
         mergedList.next = l2
     }
-    return mergedList 
+    return result.next 
 }
 
 
