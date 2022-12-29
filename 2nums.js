@@ -24,4 +24,6 @@ var addTwoNumbers = function(l1, l2) {
     //return result node
     }
     return result.next
+
+    //checking
 };
