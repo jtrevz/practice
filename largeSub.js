@@ -30,9 +30,11 @@ function largestSub (string) {
 
     for (let i = 0; i < string.length; i++) {
         const currentPosition = currentStr.indexOf(string[i]);
+        console.log(i, currentPosition, currentStr)
 
         if (currentPosition !== -1) {
             currentStr.splice(0, currentPosition + 1)
+            
         }
         
         currentStr.push(string[i]);
@@ -42,5 +44,5 @@ function largestSub (string) {
     return longest
 }
 
-console.log(largestSub("bbbbb"));
+console.log(largestSub("abcdadawertyui"));
 
